@@ -59,6 +59,7 @@ const Rename = () => {
                     name="username"
                     value={formData.username}
                     onChange={handleChange}
+                    autoComplete=""
                     required
                 />
             </div>
@@ -71,6 +72,7 @@ const Rename = () => {
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
+                    autoComplete=""
                     required
                 />
             </div>
@@ -82,6 +84,7 @@ const Rename = () => {
                     name="newName"
                     value={formData.newName}
                     onChange={handleChange}
+                    autoComplete=""
                     required
                 />
             </div>

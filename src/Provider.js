@@ -1,20 +1,24 @@
 import Context from "./Context";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 const Provider = ({ children }) => {
-    // useEffect(() => {
-    //     const handleBeforeUnload = (event) => {
-    //         event.preventDefault();
-    //         event.returnValue = "";
-    //     };
-    //     window.addEventListener("beforeunload", handleBeforeUnload);
-
-    //     return () => {
-    //         window.removeEventListener("beforeunload", handleBeforeUnload);
-    //     };
-    // }, []);
-    const [socket, setSocket] = useState();
     const userProps = useRef({});
+    useEffect(() => {
+        const handleBeforeUnload = () => {
+            localStorage.setItem(
+                "userProps",
+                JSON.stringify(userProps.current)
+            );
+        };
+        window.addEventListener("beforeunload", handleBeforeUnload);
+
+        userProps.current = JSON.parse(localStorage.getItem("userProps"));
+        localStorage.removeItem("userProps");
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
+    }, []);
+    const [socket, setSocket] = useState();
     return (
         <Context.Provider value={[userProps, socket, setSocket]}>
             {children}
