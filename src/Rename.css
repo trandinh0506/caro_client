@@ -1,0 +1,36 @@
+/* Form.css */
+
+.renameForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .renameForm div {
+    margin-bottom: 10px;
+  }
+  
+  .renameForm label {
+    font-weight: bold;
+  }
+  
+  .renameForm input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .renameForm button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .renameForm button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

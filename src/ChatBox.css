@@ -1,0 +1,37 @@
+.chat_box {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    padding: 10px;
+    border: solid 2px green;
+    top: -105px;
+    left: 200px;
+    border-radius: 5px;
+}
+.chat_name {
+    background-color: rgba(53, 173, 220, 0.841);
+    border-radius: 4px;
+}
+.message_container {
+    height: 250px;
+    overflow-y: auto;
+}
+.chat_message {
+    width: auto;
+    background-color: rgba(0, 255, 255, 0.5);
+    border-radius: 4px;
+}
+@media screen and (max-width: 850px) {
+    .chat_box {
+        display: inline-block;
+        width: 377px;
+        height: 150px;
+        position: relative;
+        /* padding: 10px; */
+        border: solid 2px green;
+        left: 20px;
+        padding: 10px;
+        top: 45px;
+    }
+}

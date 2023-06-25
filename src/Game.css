@@ -1,0 +1,102 @@
+.GameWapper {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    display: inline-block;
+    left: 100px;
+}
+.game-board {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    padding: 10px;
+    top: 35px;
+  }
+.row {
+    width: 100%;
+    height: 20px;
+}
+.cell {
+    width: 20px; /* Adjust the width as per your requirement */
+    height: 20px; /* Adjust the height as per your requirement */
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 20px; /* Adjust the line-height to center the content vertically */
+    cursor: pointer;
+}
+.player1 {
+    position: absolute;
+    background-color: #61dafb;
+    top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    top: 0;
+    left: 45px;
+}
+.player2 {
+    position: absolute;
+    background-color: #61dafb;
+    top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    top: 0;
+    right: 0px;
+}
+.start_game_btn, .accept_btn {
+    position: absolute;
+    top: 200px;
+    width: 120px;
+    height: auto;
+    left: 250px;
+}
+.win-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+  
+.win-banner h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background-color: #ffcc00;
+    border-radius: 5px;
+}
+.player1Time, .player2Time {
+    padding: 2px;
+    border-radius: 2px;
+}
+.back {
+    display: block;
+    width: 75px;
+    margin-bottom: 10px;    
+}
+@media screen and (max-width: 800px) {
+    .GameWapper {
+        display: inline-block;
+        width: 385px;
+        height: 385px;
+        position: relative;
+        padding: 10px;
+        left:0px
+    }
+    .start_game_btn, .accept_btn {
+        position: absolute;
+        top: 200px;
+        width: 120px;
+        height: auto;
+        left: 175px;
+    }
+
+}

@@ -1,0 +1,18 @@
+.input_message {
+    width: 95%;
+}
+.submitchat_btn {
+    width: 100%;
+}
+@media screen and (max-width: 850px) {
+    .input_message {
+        position: absolute;
+        top: 173px;
+        left: 0px;
+    }
+    .submitchat_btn {
+        position: absolute;
+        top: 200px;
+        left: 0px;
+    }
+}
