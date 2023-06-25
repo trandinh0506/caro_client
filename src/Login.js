@@ -12,7 +12,7 @@ const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+    const nav = useNavigate();
     let name = useRef("");
 
     const handleSubmit = async (e) => {
@@ -48,9 +48,9 @@ const LoginForm = () => {
                 socket.emit("connecting", name.current);
             });
             setLoading(false);
-            navigate("/rooms");
+            nav("/rooms");
         }
-    }, [socket, navigate, userProps]);
+    }, [socket, nav, userProps]);
     return (
         <div className="container">
             <div className="login-form">
@@ -82,7 +82,7 @@ const LoginForm = () => {
                 </form>
                 <br />
                 <span>No Account ?</span>
-                <span className="swich" onClick={() => navigate("/sign-up")}>
+                <span className="swich" onClick={() => nav("/sign-up")}>
                     Sign Up
                 </span>
             </div>

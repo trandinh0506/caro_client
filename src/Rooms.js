@@ -10,7 +10,8 @@ const Rooms = () => {
     const nav = useNavigate();
     useEffect(() => {
         document.title = "Rooms";
-    }, []);
+        if (!userProps.current) nav("/login");
+    }, [userProps, nav]);
 
     useEffect(() => {
         socket.emit("GetRooms");

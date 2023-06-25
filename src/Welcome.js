@@ -3,20 +3,20 @@ import { useNavigate } from "react-router-dom";
 import "./Welcome.css";
 const Welcome = () => {
     document.title = "Caro game";
-    const navigate = useNavigate();
+    const nav = useNavigate();
     return (
         <div className="container">
             <div className="LoginForm">
                 <button
                     onClick={() => {
-                        navigate("/login");
+                        nav("/login");
                     }}
                 >
                     Login
                 </button>
                 <button
                     onClick={() => {
-                        navigate("/sign-up");
+                        nav("/sign-up");
                     }}
                 >
                     Sign up

@@ -13,10 +13,11 @@ const Game = () => {
     const [winner, setWinner] = useState(null);
     const [userProps, socket] = useContext(Context);
     const { name, id, type } = userProps.current;
-    const navi = useNavigate();
+    const nav = useNavigate();
     useEffect(() => {
         document.title = "Caro Game";
-    }, []);
+        if (!userProps.current) nav("/login");
+    }, [userProps, nav]);
 
     useEffect(() => {
         socket.emit("subscribe", {
@@ -88,7 +89,7 @@ const Game = () => {
             <button
                 className="back"
                 onClick={() => {
-                    navi("/rooms");
+                    nav("/rooms");
                 }}
             >
                 Back
@@ -135,7 +136,7 @@ const Game = () => {
             }
             {winner && type === "play" && (
                 <div className="win-banner">
-                    <button onClick={() => navi("/rooms")} className="back_btn">
+                    <button onClick={() => nav("/rooms")} className="back_btn">
                         Back
                     </button>
                     <h1>

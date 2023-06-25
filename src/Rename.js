@@ -10,7 +10,7 @@ const Rename = () => {
         password: "",
         newName: "",
     });
-    const navi = useNavigate();
+    const nav = useNavigate();
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevState) => ({
@@ -42,7 +42,7 @@ const Rename = () => {
                         ...oldProps,
                         name: newName,
                     };
-                    navi("/rooms");
+                    nav("/rooms");
                 } else {
                     alert(res.message);
                 }

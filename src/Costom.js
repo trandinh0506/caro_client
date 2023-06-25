@@ -8,7 +8,7 @@ const Costom = ({ setCostom }) => {
         roomName: "",
         timeLimit: 180,
     });
-    const navi = useNavigate();
+    const nav = useNavigate();
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevState) => ({
@@ -24,7 +24,7 @@ const Costom = ({ setCostom }) => {
         });
         socket.on("getCostomRoomId", (id) => {
             userProps.current = { ...userProps.current, type: "play", id };
-            navi("/game");
+            nav("/game");
         });
     };
     return (

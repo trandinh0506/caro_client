@@ -4,7 +4,7 @@ import { domain } from "./CONSTANT";
 import Loading from "./Loading.gif";
 const SignupForm = () => {
     document.title = "Sign up";
-    const navigate = useNavigate();
+    const nav = useNavigate();
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
@@ -32,7 +32,7 @@ const SignupForm = () => {
                 if (data.status) {
                     setLoading(false);
                     alert(data.message);
-                    navigate("/login");
+                    nav("/login");
                 } else {
                     setLoading(false);
                     alert(data.message);
@@ -85,7 +85,7 @@ const SignupForm = () => {
                 <br />
                 <br />
                 <span>Already Account</span>
-                <span className="swich" onClick={() => navigate("/login")}>
+                <span className="swich" onClick={() => nav("/login")}>
                     Login
                 </span>
             </form>
