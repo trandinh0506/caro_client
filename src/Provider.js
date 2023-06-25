@@ -13,7 +13,6 @@ const Provider = ({ children }) => {
     //         window.removeEventListener("beforeunload", handleBeforeUnload);
     //     };
     // }, []);
-    console.log("component mounted");
     const [socket, setSocket] = useState();
     const userProps = useRef({});
     return (

@@ -11,7 +11,7 @@ import Game from "./Game.js";
 import Rename from "./Rename";
 function App() {
     return (
-        <Router basename="/caro">
+        <Router basename="/">
             <Routes>
                 <Route exact path="/" Component={Welcome} />
                 <Route exact path="/login" Component={LoginForm} />

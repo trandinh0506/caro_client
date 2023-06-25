@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { domain } from "./CONSTANT";
 import { io } from "socket.io-client";
 import Context from "./Context";
+import Loading from "./Loading.gif";
 const LoginForm = () => {
     useEffect(() => {
         document.title = "Login";
@@ -10,9 +11,12 @@ const LoginForm = () => {
     const [userProps, socket, setSocket] = useContext(Context);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     let name = useRef("");
+
     const handleSubmit = async (e) => {
+        setLoading(true);
         e.preventDefault();
         try {
             const response = await fetch(`${domain}login`, {
@@ -31,8 +35,8 @@ const LoginForm = () => {
                 };
                 setSocket(io(domain));
             } else {
-                if (data.message) alert(data.message);
-                else alert("invalid username or password");
+                alert(data.message);
+                setLoading(false);
             }
         } catch (error) {
             alert("can't connect to server");
@@ -43,6 +47,7 @@ const LoginForm = () => {
             socket.on("connect", () => {
                 socket.emit("connecting", name.current);
             });
+            setLoading(false);
             navigate("/rooms");
         }
     }, [socket, navigate, userProps]);
@@ -79,6 +84,11 @@ const LoginForm = () => {
                     Sign Up
                 </span>
             </div>
+            {loading && (
+                <div className="Loading">
+                    <img src={Loading} alt="" />
+                </div>
+            )}
         </div>
     );
 };

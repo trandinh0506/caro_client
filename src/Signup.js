@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { domain } from "./CONSTANT";
+import Loading from "./Loading.gif";
 const SignupForm = () => {
     document.title = "Sign up";
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         Username: "",
@@ -15,6 +17,7 @@ const SignupForm = () => {
     };
 
     const handleSubmit = (e) => {
+        setLoading(true);
         e.preventDefault();
 
         fetch(`${domain}signup`, {
@@ -27,14 +30,16 @@ const SignupForm = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.status) {
-                    alert("Sign Up Was Successfully!");
+                    setLoading(false);
+                    alert(data.message);
                     navigate("/login");
                 } else {
-                    alert("Username has been existed!");
+                    setLoading(false);
+                    alert(data.message);
                 }
             })
             .catch((error) => {
-                // Handle error
+                setLoading(false);
                 alert("Error: Can not connect to the server!");
             });
     };
@@ -84,6 +89,11 @@ const SignupForm = () => {
                     Login
                 </span>
             </form>
+            {loading && (
+                <div className="Loading">
+                    <img src={Loading} alt="" />
+                </div>
+            )}
         </>
     );
 };
