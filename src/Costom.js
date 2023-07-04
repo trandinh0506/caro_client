@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Context from "./Context";
 import "./Costom.css";
+import close from "./close.png";
 const Costom = ({ setCostom }) => {
     const [userProps, socket] = useContext(Context);
     const [formData, setFormData] = useState({
@@ -30,7 +31,7 @@ const Costom = ({ setCostom }) => {
     return (
         <div className="costomWapper">
             <div className="exit" onClick={() => setCostom(false)}>
-                X
+                <img src={close} alt="" />
             </div>
             <form onSubmit={handleSubmit} className="costomRoom">
                 <div>

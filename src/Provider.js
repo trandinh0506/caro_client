@@ -1,24 +1,12 @@
+import { domain } from "./CONSTANT";
 import Context from "./Context";
-
 import React, { useRef, useState, useEffect } from "react";
 const Provider = ({ children }) => {
-    const userProps = useRef({});
+    const userProps = useRef();
+    const [socket, setSocket] = useState(null);
     useEffect(() => {
-        const handleBeforeUnload = () => {
-            localStorage.setItem(
-                "userProps",
-                JSON.stringify(userProps.current)
-            );
-        };
-        window.addEventListener("beforeunload", handleBeforeUnload);
-
-        userProps.current = JSON.parse(localStorage.getItem("userProps"));
-        localStorage.removeItem("userProps");
-        return () => {
-            window.removeEventListener("beforeunload", handleBeforeUnload);
-        };
+        fetch(`${domain}wakeup`);
     }, []);
-    const [socket, setSocket] = useState();
     return (
         <Context.Provider value={[userProps, socket, setSocket]}>
             {children}

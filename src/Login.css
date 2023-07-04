@@ -56,10 +56,14 @@ button {
 button:hover {
   background-color: #222222;
 }
-.swich {
+.switch {
   width: 90px;
   padding: 10px;
   color: rgba(30, 30, 212, 0.795);
+}
+.switch:hover {
+  cursor: pointer;
+  color: rgba(255, 0, 0, .75);
 }
 .Loading {
   position: fixed;

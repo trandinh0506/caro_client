@@ -85,7 +85,7 @@ const SignupForm = () => {
                 <br />
                 <br />
                 <span>Already Account</span>
-                <span className="swich" onClick={() => nav("/login")}>
+                <span className="switch" onClick={() => nav("/login")}>
                     Login
                 </span>
             </form>

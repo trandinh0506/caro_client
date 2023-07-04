@@ -39,11 +39,12 @@ const LoginForm = () => {
                 setLoading(false);
             }
         } catch (error) {
+            setLoading(false);
             alert("can't connect to server");
         }
     };
     useEffect(() => {
-        if (socket && userProps.current.name) {
+        if (socket && userProps.current) {
             socket.on("connect", () => {
                 socket.emit("connecting", name.current);
             });
@@ -82,7 +83,7 @@ const LoginForm = () => {
                 </form>
                 <br />
                 <span>No Account ?</span>
-                <span className="swich" onClick={() => nav("/sign-up")}>
+                <span className="switch" onClick={() => nav("/sign-up")}>
                     Sign Up
                 </span>
             </div>
