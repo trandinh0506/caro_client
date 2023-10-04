@@ -22,7 +22,8 @@ const Game = () => {
 
     useEffect(() => {
         if (userProps.current && socket) {
-            if (userProps.current.id) {
+            console.log(userProps.current);
+            if (userProps.current.id > -1) {
                 socket.emit("subscribe", {
                     id,
                     type,
@@ -93,6 +94,7 @@ const Game = () => {
             setShowStart(true);
         }
         setWinner(null);
+        
     };
 
     if (userProps.current && socket) {
